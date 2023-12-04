@@ -29,3 +29,34 @@ explore.data.frame <- function(data,type,x,y, ...){
   }
 
 }
+#' @exportS3Method
+explore.single_cell <- function(single_cell,xaxis="Time",yaxis="Trials") {
+  par(mfrow=c(1,1))
+  # if (xaxis=="Time"){
+  #   x <- single_cell$Time
+  #   y <- single_cell$Lap
+  # }
+  # if(xaxis=="Location"){
+  #   x <- single_cell$Loc
+  #   y <- single_cell$Lap
+  #
+  # }
+
+  x <- single_cell$V1
+  y <- single_cell$V2
+
+  # Plotting vertical lines with unit length 1
+  plot(x,y, type = "n", xlab = xaxis, ylab = yaxis, xlim = c(min(x), max(x) + 1), ylim = c(0, max(y) + 1))
+
+  segments(x, y - 0.5, x, y + 0.5, col = "blue")
+  if (yaxis=="Neurons"){
+    title(paste("Raster of neurons firing across", xaxis, sep = " "))
+  }
+  else{
+    title(paste("Raster of single neuron firing across", xaxis, sep = " "))
+  }
+
+
+  # how to make the raster plot
+
+}
