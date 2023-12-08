@@ -1,7 +1,12 @@
 library(ggplot2)
+library(dplyr)
+library(rAmCharts4) # interactive pie chart
+library(plotly) # plotting graphs side by side
+library(viridis)
+
 # Two numerical variables
 
-# scatterplot
+# scatterplots
 scatterplot <- function(data, x, y,...) {
   ggplot(data = data,
          mapping = aes(x = {{x}}, y = {{y}})) +
@@ -40,13 +45,57 @@ boxplot <- function(data, x,...){
     geom_boxplot(...)
 }
 
+boxplot(iris, Sepal.Width)
+
 # One categorical variable
 
-barplot <- function(data, x,...) {
-  ggplot(data = data,
-         mapping = aes(x = {{x}})) +
-    geom_bar(...)
+barplot <- function(data, x) {
+  ggplot2::ggplot(data = data,
+         mapping = aes(x = {{x}}, fill = {{x}})) +
+    geom_bar()
 }
+
+# barplot(iris, Species)
+
+pie_chart_interactive <- function(data, x){
+  count <- dplyr::count(x = data, {{x}})
+  pie <- rAmCharts4::amPieChart(
+    data = count,
+    category = names(count)[1],
+    value =  names(count)[2],
+    threeD = TRUE
+  )
+  suppressWarnings(print(pie))
+}
+
+# pie_chart_interactive(iris, Species)
+
+pie_chart <- function(data, x, ...){
+  count <- dplyr::count(x = data, {{x}})
+  choices <- length(unique(count[[as.character(enquo(x))[-1] ]]))
+  plotly::plot_ly(labels = count[[as.character(enquo(x))[-1] ]],
+                  values= count[["n"]],
+                  type = "pie",
+                  marker = list(colors = viridis::viridis_pal(option = "D")(choices))
+                  )
+}
+
+pie_chart(iris, Species)
+
+
+barchart <- function(data, x,...) {
+  count <- dplyr::count(x = data, {{x}})
+  # number of categories
+  choices <- length(unique(count[[as.character(enquo(x))[-1] ]]))
+  plotly::plot_ly(x = count[[as.character(enquo(x))[-1] ]],
+                  y = count[["n"]],
+                  showlegend = TRUE,
+                  type = "bar",
+                  color = count[[as.character(enquo(x))[-1] ]],
+                  colors = viridis::viridis_pal(option = "D")(choices))
+}
+
+barchart(iris, Species)
 
 # Multivariate graphs
 # At least one categorical variable
@@ -64,7 +113,7 @@ facet_hist <- function(data, x, categorize_by, ...) {
 
 par_box <- function(data, y, categorize_by, ...) {
   ggplot(data = data,
-         mapping = aes(x = as.character({{categorize_by}}), y = {{y}})) +
+         mapping = aes(x = as.character({{categorize_by}}), y = {{y}}, fill = as.character({{categorize_by}}))) +
            geom_boxplot(...)
 }
 
@@ -102,7 +151,7 @@ color_line <- function(data, x, y, categorize_by, ...) {
 
 color_line(data = iris, x = Sepal.Length, y = Sepal.Width, categorize_by = Species)
 
-# One categorical variable
+# One quantitative variable, grouped by one categorical variable
 explore_pair1 <- function(data, x, categorize_by) {
 
   top_left <- stack_bar({{data}}, {{x}}, {{categorize_by}})
@@ -111,7 +160,6 @@ explore_pair1 <- function(data, x, categorize_by) {
 
   top_right <- par_box({{data}}, {{x}}, {{categorize_by}})
 
-
   gridExtra::grid.arrange(
     top_left,
     top_right,
@@ -119,8 +167,10 @@ explore_pair1 <- function(data, x, categorize_by) {
   )
 }
 
-# Test
 explore_pair1(data = iris, x = Sepal.Length, categorize_by = Species)
+
+
+
 
 # Multivariate
 library(gridExtra)
@@ -137,3 +187,31 @@ explore_pair2 <- function(data, x, y, categorize_by,...) {
 }
 
 explore_pair2(data = iris, x = Sepal.Length, y = Sepal.Width, categorize_by = Species)
+
+# One categorical variable
+explore_pair3 <- function(data, x) {
+
+  top_left <- barplot({{data}}, {{x}})
+
+  bottom_left <- pie_chart({{data}}, {{x}})
+
+  gridExtra::grid.arrange(arrangeGrob(
+    top_left,
+    bottom_left
+  ))
+}
+
+explore_pair3(data = iris, x = Species)
+
+one_cat <- function(data, x) {
+  barchart <- barchart({{data}}, {{x}},
+                       domain = list(x = c(0, 0.5), y = c(0, 0.5)))
+
+  piechart <-  pie_chart({{data}}, {{x}},
+                         domain = list(x = c(0, 0.5), y = c(10.6, 11.1)))
+
+  plotly::subplot(barchart, style(piechart, showlegend = F), nrows = 2)
+}
+
+one_cat(iris, Species)
+
