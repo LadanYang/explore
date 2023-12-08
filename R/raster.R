@@ -16,8 +16,9 @@ validate_single_cell <- function() {
 
 }
 
+#' @importFrom R.matlab readMat
 single_cell <- function(matdata, xaxis){
-  library(R.matlab)
+
   dfdata<-as.data.frame(readMat(matdata))
   colnames(dfdata) <-c("V1","V2")
 
@@ -28,7 +29,11 @@ single_cell <- function(matdata, xaxis){
   return(obj)
 }
 
-
+#' @exportS3Method
+fortify.single_cell <- function(model, data, ...) {
+  class(model) <- "data.frame"
+  model
+}
 
 # my_single_cell_object <- single_cell("~/path/to/matlab/file/")
 # explotr(my_single_cell_object)

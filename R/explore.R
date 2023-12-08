@@ -2,6 +2,7 @@
 explore <- function(data,type,x, ...) {
   UseMethod("explore")
 }
+#' @import ggplot2
 #' @exportS3Method
 explore.data.frame <- function(data,type,x,y, ...){
   #library(ggplot2)
@@ -30,33 +31,56 @@ explore.data.frame <- function(data,type,x,y, ...){
 
 }
 #' @exportS3Method
-explore.single_cell <- function(single_cell,xaxis="Time",yaxis="Trials") {
-  par(mfrow=c(1,1))
-  # if (xaxis=="Time"){
-  #   x <- single_cell$Time
-  #   y <- single_cell$Lap
-  # }
-  # if(xaxis=="Location"){
-  #   x <- single_cell$Loc
-  #   y <- single_cell$Lap
-  #
-  # }
+explore.single_cell <- function(single_cell,
+                                xaxis="Time",
+                                yaxis="Trials",
+                                stim="Stimulus",
+                                shade_on=0,
+                                shade_off=0,
+                                shade_color="pink"
+                                ) {
+  # Plot
+  #library(ggplot2)
+  #' @import ggplot2
+  # Raster Plot with adjusted line length using geom_linerange
 
-  x <- single_cell$V1
-  y <- single_cell$V2
+  gg_raster <- ggplot(single_cell) +
+    geom_rect(aes(fill = stim),
+              xmin = shade_on, xmax = shade_off,
+              ymin = 0,
+              ymax = Inf,
+              alpha = 0.5
+    ) +
+    geom_linerange(aes(x = V1, y = V2, ymin = V2 - 0.3, ymax =  V2 + 0.3),
+                   color = "black"
+                   ) +
+    scale_fill_manual(values = shade_color, guide = "none") +
+    xlim(c(min(single_cell$V1), max(single_cell$V1))) +
+    ylab("Laps") +
+    xlab(xaxis)+
+    #annotate("rect", xmin = 120, xmax = 150, ymin = 0, ymax = 10,
+    #alpha = .1,fill = "red")+
+    ggtitle("Neuronal Spike Times")
 
-  # Plotting vertical lines with unit length 1
-  plot(x,y, type = "n", xlab = xaxis, ylab = yaxis, xlim = c(min(x), max(x) + 1), ylim = c(0, max(y) + 1))
+  gg_psth <- ggplot(single_cell) +
+    geom_rect(aes(fill = stim),
+              xmin = shade_on, xmax = shade_off,
+              ymax = Inf,
+              ymin = 0,
+              alpha = 0.5
+    ) +
+    geom_histogram(aes(x = V1, y = ..count..), binwidth = 1, fill = "black", color = "black") +
+    scale_fill_manual(values = shade_color) +
+    xlim(c(min(single_cell$V1), max(single_cell$V1))) +
+    ylab("Count") +
+    xlab(xaxis)+
+    ggtitle("Peri-Stimulus Time Histogram (PSTH)") +
+    theme(legend.title = element_blank(),
+          legend.position = c(.8, .8)
+    )
 
-  segments(x, y - 0.5, x, y + 0.5, col = "blue")
-  if (yaxis=="Neurons"){
-    title(paste("Raster of neurons firing across", xaxis, sep = " "))
-  }
-  else{
-    title(paste("Raster of single neuron firing across", xaxis, sep = " "))
-  }
-
-
-  # how to make the raster plot
+  # Combine both plots
+  library(gridExtra)
+  print(grid.arrange(gg_raster, gg_psth, ncol = 1, heights = c(2, 1)))
 
 }
