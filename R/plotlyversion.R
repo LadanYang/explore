@@ -133,7 +133,7 @@ error_bar <- function(data, x, categorize_by, legend = "right", ...) {
                                     legendgroup= cat))
 }
 
-error_bar(iris, Sepal.Length, Species, "none")
+error_bar(iris, Sepal.Length, Species)
 
 # b
 stack_bar <- function(data, x, categorize_by, legend = "right",...) {

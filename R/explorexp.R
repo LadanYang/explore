@@ -19,9 +19,9 @@ numeric_2(iris, Sepal.Length, Sepal.Width)
 
 cat_1 <- function(data, x,...) {
   barchart <- bar(data, {{x}})
-  piechart <- pie(data, {{x}}, )
+  piechart <- pie(data, {{x}})
 
-  suppressWarnings(plotly::subplot(barchart, piechart, nrows = 2))
+  suppressWarnings(print(plotly::subplot(barchart, piechart, nrows = 2)))
 }
 
 cat_1(iris, Species)
@@ -33,12 +33,12 @@ num1_cat1 <- function(data, x, categorize_by, ...){
   colorbox <- color_box(data, {{x}}, {{categorize_by}}, legend = F)
   overlaphist <- overlap_hist(data, {{x}}, {{categorize_by}})
 
-  cat <- rlang::enquo(categorize_by)
-  numberedx <- plotly::subplot(parbar, stackbar, overlaphist,
-                               shareX = TRUE, nrows = 3)
-  catx <- plotly::subplot(errorbar, colorbox, nrows = 2)
+  numberedx <- suppressWarnings(print(plotly::subplot(parbar, stackbar, overlaphist,
+                               shareX = TRUE, nrows = 3)))
 
-  plotly::subplot(numberedx, catx)
+  catx <- suppressWarnings(print(plotly::subplot(errorbar, colorbox, nrows = 2)))
+
+  suppressWarnings(print(plotly::subplot(numberedx, catx)))
 }
 
 num1_cat1(iris, Sepal.Length, Species)
@@ -56,7 +56,7 @@ num2_cat1(iris, Sepal.Length, Sepal.Width, Species)
 num1_cat2 <- function(data, x_cat, y, group,...) {
   groupbox <- group_box(data, {{x_cat}}, {{y}}, {{group}})
 
-  suppressWarnings(plotly::subplot(groupbox, nrows = 1))
+  suppressWarnings(print(plotly::subplot(groupbox, nrows = 1)))
 }
 
 num1_cat2(data, new, Sepal.Length, Species)
