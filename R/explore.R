@@ -2,34 +2,18 @@
 explore <- function(data,type,x, ...) {
   UseMethod("explore")
 }
+
+#' create peri-event histogram and raster plot for single_cell data
+#' @importFrom gridExtra grid.arrange
 #' @import ggplot2
-#' @exportS3Method
-explore.data.frame <- function(data,type,x,y, ...){
-  #library(ggplot2)
-  if (type == "univariate"){
-    par(mfrow=c(2,2))
-    hist(data[[x]], main="Histogram")
-    barplot(data[[x]], main="Bar plot")
-    boxplot(data[[x]], main="Box plot")
-    plot(data[[x]], main="Scatterplot")
-  }
-  if (type== "bivariate"){
-    library(ggplot2)
-    library(patchwork)
-    scatter<- ggplot(
-      data,aes(x=data[[x]],y=data[[y]]))+geom_point()+xlab(x)+ylab(y)
-    line<-ggplot(data,mapping=aes(x=data[[x]],y=data[[y]]))+geom_line()+xlab(x)+ylab(y)
-    box<-ggplot(data,mapping=aes(x=data[[x]],y=data[[y]]))+geom_boxplot()+xlab(x)+ylab(y)
-
-    print(scatter + line + box +
-       plot_layout(ncol = 2))
-
-  }
-  if (type== "multivariate"){
-
-  }
-
-}
+#' @param single_cell a [`single_cell`] object that has first column the spiking data and second column labeling the laps, trials or neurons
+#' @param xaxis the x axis label of the graph, default value as "Time"
+#' @param yaxis the y axis label of the raster plot, default value as "Trials"
+#' @param stim The name of the highlighted region, default value as "Stimulus"
+#' @param shade_on The starting x axis value for highlight/shading, default 0
+#' @param shade_off The ending x axis value for highlight/shading, default 0
+#' @param shade_color The coloring of the shading, default value as "pink"
+#' @return a plot with raster plot of neurons firing patterns and histogram of counts of the firing
 #' @exportS3Method
 explore.single_cell <- function(single_cell,
                                 xaxis="Time",
@@ -40,8 +24,7 @@ explore.single_cell <- function(single_cell,
                                 shade_color="pink"
                                 ) {
   # Plot
-  #library(ggplot2)
-  #' @import ggplot2
+
   # Raster Plot with adjusted line length using geom_linerange
 
   gg_raster <- ggplot(single_cell) +
@@ -58,8 +41,6 @@ explore.single_cell <- function(single_cell,
     xlim(c(min(single_cell$V1), max(single_cell$V1))) +
     ylab("Laps") +
     xlab(xaxis)+
-    #annotate("rect", xmin = 120, xmax = 150, ymin = 0, ymax = 10,
-    #alpha = .1,fill = "red")+
     ggtitle("Neuronal Spike Times")
 
   gg_psth <- ggplot(single_cell) +
@@ -80,7 +61,6 @@ explore.single_cell <- function(single_cell,
     )
 
   # Combine both plots
-  library(gridExtra)
   print(grid.arrange(gg_raster, gg_psth, ncol = 1, heights = c(2, 1)))
 
 }
