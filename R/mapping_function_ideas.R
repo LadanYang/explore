@@ -20,7 +20,7 @@ library(dplyr)
 #' @examples
 #' point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
 #' point_data2 <- st_as_sf(point_data)
-#' makeSpatialViz(point_data2)
+#' explore_points(point_data2)
 #'
 #'
 #' @importFrom sf
@@ -31,7 +31,7 @@ library(dplyr)
 #'
 #' @export
 
-makeSpatialViz <- function(data, variable = NULL) {
+explore_points <- function(data, variable = NULL) {
 
   if (!inherits(data, "sf")) {
     stop("Input data should be of class 'sf'")
@@ -72,8 +72,11 @@ makeSpatialViz <- function(data, variable = NULL) {
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
 #'
 #' @examples
-#' point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
-#' point_data <- st_as_sf(point_data)
+#' plot_polygon_factory()$plot_basic(polygon_data)
+#'
+#' plot_polygon_factory(var_column = "FIPS")$plot_scaled(polygon_data)
+#'
+#' plot_polygon_factory(var_column = "AREA")$plot_scaled(polygon_data)
 #'
 #' @importFrom sf
 #' @importFrom leaflet
@@ -84,7 +87,7 @@ makeSpatialViz <- function(data, variable = NULL) {
 #' @export
 
 
-plot_polygon_factory <- function(base_map_type = "OpenStreetMap", var_column = NULL) {
+explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL) {
 
   tmap_mode("view")
 
