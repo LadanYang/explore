@@ -1,4 +1,4 @@
 ## code to prepare `DATASET` dataset goes here
 
-example<-single_cell("xydata.mat",xaxis="Location")
+example<-readRDS("cellexample.rds")
 usethis::use_data(example, overwrite = TRUE)
