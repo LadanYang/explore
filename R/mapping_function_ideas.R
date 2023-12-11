@@ -26,7 +26,8 @@ library(dplyr)
 #' @importFrom sf
 #' @importFrom leaflet
 #' @importFrom leaflet.extras
-#' @importFrom viridis
+#' @importFrom tmap
+#' @importFrom dplyr
 #'
 #' @export
 
@@ -77,7 +78,8 @@ makeSpatialViz <- function(data, variable = NULL) {
 #' @importFrom sf
 #' @importFrom leaflet
 #' @importFrom leaflet.extras
-#' @importFrom viridis
+#' @importFrom tmap
+#' @importFrom dplyr
 #'
 #' @export
 
