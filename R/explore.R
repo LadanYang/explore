@@ -88,7 +88,7 @@ explore.single_cell <- function(single_cell,
 #' @import tmap
 #' @import dplyr
 #'
-#' @exportS3Method explore_points
+#' @export
 explore_points <- function(data, variable = NULL) {
 
   if (!inherits(data, "sf")) {
@@ -142,7 +142,7 @@ explore_points <- function(data, variable = NULL) {
 #' @import tmap
 #' @import dplyr
 #'
-#' @exportS3Method explore_polygons
+#' @export
 explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL) {
 
   tmap_mode("view")
