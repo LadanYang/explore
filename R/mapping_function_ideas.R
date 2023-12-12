@@ -67,7 +67,7 @@ explore_points <- function(data, variable = NULL) {
 #'
 #' @param dataframe with geometry of "POLYGON" or "MULTIPOLYGON" class
 #'
-#' @param optional--variable variable to plot a scaled and/or gradient map
+#' @param var_column optional variable to plot a scaled and/or gradient map
 #'
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
 #'
