@@ -1,6 +1,6 @@
 library(ggplot2)
 library(dplyr)
-library(rAmCharts4) # interactive pie chart
+#library(rAmCharts4) # interactive pie chart
 library(plotly) # plotting graphs side by side
 library(viridis)
 
