@@ -1,12 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
+ 
 # explore
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of explore is to …
+The goal of explore is to quickly visualize the datasets without having to write intensive codes. The graph can be multiple plots that are interactive and also include multiple discipline: statistics, geographic information system(GIS), and neuroscience. 
 
 ## Installation
 
@@ -20,11 +20,21 @@ devtools::install_github("LadanYang/explore")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to create a raster and perievent histogram for neurons spiking:
 
 ``` r
-#library(explore)
-## basic example code
+library(explore)
+##create raster plot
+##convert matlab file first
+cell_data<-single_cell("https://github.com/LadanYang/explore/raw/main/data-raw/xydata.mat")
+#create the raster perievent hist, only single_cell is required, all others have default value
+explore(cell_data,
+        xaxis="Time",
+        yaxis="Trials",
+        stim="Stimulus",
+        shade_on=120,
+        shade_off=150,
+        shade_color="pink")
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?
