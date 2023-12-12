@@ -38,7 +38,9 @@ Imports:
     sf,
     tidyr,
     tmap,
-    viridis
+    viridis,
+    rAmCharts4,
+    R.matlab
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
