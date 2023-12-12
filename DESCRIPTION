@@ -2,8 +2,8 @@ Package: explore
 Title: Make visualizations for Statistical, Spatial, and Neural Data
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Ladan", "Yang", , "hadley@posit.co", role = c("aut", "cre")),
-    person("Ari", "Cross", , "jenny@posit.co", role = c("aut", "cre")),
+    person("Ladan", "Yang", , "cyang93@smith.edu", role = c("aut", "cre")),
+    person("Ari", "Cross", , "arlena20cross@gmail.com", role = c("aut", "cre")),
     person("Nikki", "Lin", , "nlin@smith.edu", role = c("aut", "cre"))
   )
 Description: This package will take a data set as user input and create
