@@ -82,11 +82,11 @@ explore.single_cell <- function(single_cell,
 #' explore_points(point_data2)
 #'
 #'
-#' @importFrom sf
-#' @importFrom leaflet
-#' @importFrom leaflet.extras
-#' @importFrom tmap
-#' @importFrom dplyr
+#' @import sf
+#' @import leaflet
+#' @import leaflet.extras
+#' @import tmap
+#' @import dplyr
 #'
 #' @exportS3Method
 explore_points <- function(data, variable = NULL) {
@@ -136,11 +136,11 @@ explore_points <- function(data, variable = NULL) {
 #'
 #' plot_polygon_factory(var_column = "AREA")$plot_scaled(polygon_data)
 #'
-#' @importFrom sf
-#' @importFrom leaflet
-#' @importFrom leaflet.extras
-#' @importFrom tmap
-#' @importFrom dplyr
+#' @import sf
+#' @import leaflet
+#' @import leaflet.extras
+#' @import tmap
+#' @import dplyr
 #'
 #' @exportS3Method
 explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL) {
