@@ -2,8 +2,6 @@
 explore <- function(data,type,x, ...) {
   UseMethod("explore")
 }
-
-
 #Clara's Functions
 #' create peri-event histogram and raster plot for single_cell data
 #' @importFrom gridExtra grid.arrange
