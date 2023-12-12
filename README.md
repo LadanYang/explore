@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# xplore
+# explore
 
 <!-- badges: start -->
 <!-- badges: end -->
