@@ -41,7 +41,7 @@ boxplot <- function(data, x,...){
     geom_boxplot(...)
 }
 
-boxplot(iris, Sepal.Width)
+#boxplot(iris, Sepal.Width)
 
 # One categorical variable
 
@@ -76,7 +76,7 @@ pie_chart <- function(data, x, ...){
                   )
 }
 
-pie_chart(iris, Species)
+#pie_chart(iris, Species)
 
 
 barchart <- function(data, x,...) {
@@ -91,7 +91,7 @@ barchart <- function(data, x,...) {
                   colors = viridis::viridis_pal(option = "D")(choices))
 }
 
-barchart(iris, Species)
+#barchart(iris, Species)
 
 # Multivariate graphs
 # At least one categorical variable
@@ -145,7 +145,7 @@ color_line <- function(data, x, y, categorize_by, ...) {
     geom_line(...)
 }
 
-color_line(data = iris, x = Sepal.Length, y = Sepal.Width, categorize_by = Species)
+#color_line(data = iris, x = Sepal.Length, y = Sepal.Width, categorize_by = Species)
 
 # One quantitative variable, grouped by one categorical variable
 explore_pair1 <- function(data, x, categorize_by) {
@@ -163,7 +163,7 @@ explore_pair1 <- function(data, x, categorize_by) {
   )
 }
 
-explore_pair1(data = iris, x = Sepal.Length, categorize_by = Species)
+#explore_pair1(data = iris, x = Sepal.Length, categorize_by = Species)
 
 
 
@@ -182,7 +182,7 @@ explore_pair2 <- function(data, x, y, categorize_by,...) {
   )
 }
 
-explore_pair2(data = iris, x = Sepal.Length, y = Sepal.Width, categorize_by = Species)
+#explore_pair2(data = iris, x = Sepal.Length, y = Sepal.Width, categorize_by = Species)
 
 # One categorical variable
 explore_pair3 <- function(data, x) {
@@ -197,7 +197,7 @@ explore_pair3 <- function(data, x) {
   ))
 }
 
-explore_pair3(data = iris, x = Species)
+#explore_pair3(data = iris, x = Species)
 
 one_cat <- function(data, x) {
   barchart <- barchart({{data}}, {{x}},
@@ -209,5 +209,5 @@ one_cat <- function(data, x) {
   plotly::subplot(barchart, style(piechart, showlegend = F), nrows = 2)
 }
 
-one_cat(iris, Species)
+#one_cat(iris, Species)
 
