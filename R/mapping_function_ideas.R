@@ -160,36 +160,36 @@ explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL)
 ####EXAMPLE_USAGE####
 
 
-inj_res <- st_read("~/Downloads/MCW/Research/Projects/Data/injury_and_residence.shp")
-inj_res <- st_as_sf(inj_res)
-inj_res_subset <- subset(inj_res, City_x == c("MILWAUKEE", "Milwaukee") & Gender == "Female")
-inj_res_subset <- head(inj_res_subset, 100)
-#tests
-
-WI_census_tracts <- st_read("~/Downloads/MCW/Research/Projects/Data/Wisconsin_CensusTL_Tract/WI_CensusTL_Tracts_2021.shp")
-WI_census_tracts <- st_as_sf(WI_census_tracts)
-
-point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
-point_data2 <- st_as_sf(point_data)
-
-polygon_data <- st_read(system.file("shape/nc.shp", package="sf"))
-polygon_maps <- makeSpatialViz(polygon_data, variable = "BIR74")
-
-
-makeSpatialViz(polygon_data, variable = "CNTY_ID")
-makeSpatialViz(WI_census_tracts, variable = "COUNTYFP")
-makeSpatialViz(point_data2)
-makeSpatialViz(inj_res_subset)
-
-
-explore_polygons(var_column = "COUNTYFP")$plot_scaled(WI_census_tracts)
-
-explore_polygons(var_column = "ALAND")$plot_gradient(WI_census_tracts)
-
-explore_polygons()$plot_basic(polygon_data)
-
-explore_polygons(var_column = "FIPS")$plot_scaled(polygon_data)
-
-explore_polygons(var_column = "AREA")$plot_scaled(polygon_data)
-
-
+# inj_res <- st_read("~/Downloads/MCW/Research/Projects/Data/injury_and_residence.shp")
+# inj_res <- st_as_sf(inj_res)
+# inj_res_subset <- subset(inj_res, City_x == c("MILWAUKEE", "Milwaukee") & Gender == "Female")
+# inj_res_subset <- head(inj_res_subset, 100)
+# #tests
+#
+# WI_census_tracts <- st_read("~/Downloads/MCW/Research/Projects/Data/Wisconsin_CensusTL_Tract/WI_CensusTL_Tracts_2021.shp")
+# WI_census_tracts <- st_as_sf(WI_census_tracts)
+#
+# point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
+# point_data2 <- st_as_sf(point_data)
+#
+# polygon_data <- st_read(system.file("shape/nc.shp", package="sf"))
+# polygon_maps <- makeSpatialViz(polygon_data, variable = "BIR74")
+#
+#
+# makeSpatialViz(polygon_data, variable = "CNTY_ID")
+# makeSpatialViz(WI_census_tracts, variable = "COUNTYFP")
+# makeSpatialViz(point_data2)
+# makeSpatialViz(inj_res_subset)
+#
+#
+# explore_polygons(var_column = "COUNTYFP")$plot_scaled(WI_census_tracts)
+#
+# explore_polygons(var_column = "ALAND")$plot_gradient(WI_census_tracts)
+#
+# explore_polygons()$plot_basic(polygon_data)
+#
+# explore_polygons(var_column = "FIPS")$plot_scaled(polygon_data)
+#
+# explore_polygons(var_column = "AREA")$plot_scaled(polygon_data)
+#
+#
