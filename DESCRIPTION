@@ -6,6 +6,7 @@ Authors@R: c(
     person("Ari", "Cross", , "arlena20cross@gmail.com", role = c("aut", "cre")),
     person("Nikki", "Lin", , "nlin@smith.edu", role = c("aut", "cre"))
   )
+Maintainer: Ladan Yang <cyang93@smith.edu>
 Description: This package will take a data set as user input and create
     visualizations.  Optionally, functions will also take a variable and
     produce plots based on the type of variable.  Basic explore functions
