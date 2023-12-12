@@ -1,13 +1,12 @@
-library(plotly) # plotting graphs side by side
-library(viridis)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
+#' Creates an interactive scatterplot.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame that is plotted on the x-axis
+#' @param y A numeric variable from the data frame that is plotted on the y-axis
+#'
+#' @return An interactive scatterplot
 
-
-# scatterplots
-# (2 numeric variables)
-scatter <- function(data, x, y,...) {
+scatter <- function(data, x, y) {
   x_val <- rlang::enquo(x)
   y_val <- rlang::enquo(y)
   y_name <- deparse(substitute(y))
@@ -17,11 +16,18 @@ scatter <- function(data, x, y,...) {
 
 }
 
-scatter(iris, Sepal.Length, Sepal.Width)
+# scatter(iris, Sepal.Length, Sepal.Width)
 
-# (2 numeric, split by 1 cat)
+#' Creates an interactive scatterplot with different color points for each level of the categorical variable.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame that is plotted on the x-axis
+#' @param y A numeric variable from the data frame that is plotted on the y-axis
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An colored interactive scatterplot
 
-color_scatter <- function(data, x, y, categorize_by,...) {
+color_scatter <- function(data, x, y, categorize_by) {
   x_val <- rlang::enquo(x)
   y_val <- rlang::enquo(y)
   cat <- rlang::enquo(categorize_by)
@@ -32,12 +38,17 @@ color_scatter <- function(data, x, y, categorize_by,...) {
                   color = cat,
                   colors = viridis::viridis_pal(option = "D")(choices))
 }
-color_scatter(iris, Sepal.Length, Sepal.Width, Species)
+# color_scatter(iris, Sepal.Length, Sepal.Width, Species)
 
+#' Creates an interactive linegraph.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame that is plotted on the x-axis
+#' @param y A numeric variable from the data frame that is plotted on the y-axis
+#'
+#' @return An interactive linegraph
 
-# linegraphs
-# (2 numeric variables)
-line <- function(data, x, y,...) {
+line <- function(data, x, y) {
   x_val <- rlang::enquo(x)
   y_val <- rlang::enquo(y)
   plotly::plot_ly(data, x = x_val, y = y_val,
@@ -46,11 +57,18 @@ line <- function(data, x, y,...) {
   )
 }
 
-line(iris, Sepal.Length, Sepal.Width)
+# line(iris, Sepal.Length, Sepal.Width)
 
-# (2 numeric, split by 1 cat)
+#' Creates an interactive linegraph with different color lines for each level of the categorical variable.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame that is plotted on the x-axis
+#' @param y A numeric variable from the data frame that is plotted on the y-axis
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An colored interactive linegraph
 
-color_line <- function(data, x, y, categorize_by,...) {
+color_line <- function(data, x, y, categorize_by) {
   x_val <- rlang::enquo(x)
   y_val <- rlang::enquo(y)
   cat <- rlang::enquo(categorize_by)
@@ -61,12 +79,17 @@ color_line <- function(data, x, y, categorize_by,...) {
                   color = cat,
                   colors = viridis::viridis_pal(option = "D")(choices))
 }
-color_line(iris, Sepal.Length, Sepal.Width, Species)
+#color_line(iris, Sepal.Length, Sepal.Width, Species)
 
-# barcharts
-# (1 categorical variable)
 
-bar <- function(data, x,...) {
+#' Creates an interactive barchart.
+#'
+#' @param data A data frame
+#' @param x A categorical variable from the data frame
+#'
+#' @return An interactive barchart
+
+bar2 <- function(data, x,...) {
   plot <- ggplot2::ggplot(data = data,
                           mapping = ggplot2::aes(x = {{x}}, fill = {{x}})) +
     ggplot2::geom_bar(...) +
@@ -74,10 +97,16 @@ bar <- function(data, x,...) {
   plotly::ggplotly(plot)
 }
 
-bar(iris, Species)
+# bar2(iris, Species)
 
-# also works
-bar2 <- function(data, x,...) {
+#' Creates an interactive barchart.
+#'
+#' @param data A data frame
+#' @param x A categorical variable from the data frame
+#'
+#' @return An interactive barchart
+
+bar <- function(data, x) {
   count <- dplyr::count(x = data, {{x}})
   # number of categories
   choices <- length(unique(count[[as.character(rlang::enquo(x))[-1] ]]))
@@ -89,10 +118,15 @@ bar2 <- function(data, x,...) {
                   colors = viridis::viridis_pal(option = "D")(choices))
 }
 
-bar2(iris, Species)
+# bar(iris, Species)
 
-# piechart
-# (1 categorical variable)
+#' Creates an interactive pie chart.
+#'
+#' @param data A data frame
+#' @param x A categorical variable from the data frame
+#'
+#' @return An interactive pie chart
+
 pie <- function(data, x, ...){
   count <- dplyr::count(x = data, {{x}})
   choices <- length(unique(count[[as.character(dplyr::enquo(x))[-1] ]]))
@@ -101,14 +135,20 @@ pie <- function(data, x, ...){
                   type = "pie",
                   marker = list(colors = viridis::viridis_pal(option = "D")(choices)),
                   domain = list(x = c(0.5, 0.5), # centered on x axis
-                                y = c(0.0, 0.4)),
-                  showlegend = FALSE
-  )
+                                y = c(0.0, 0.45)),
+                  showlegend = FALSE)
 }
-pie(iris, Species)
 
-# (1 numeric and 1 categorical)
-# a
+# pie(iris, Species)
+
+#' Creates an interactive barchart with error bars.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An interactive barchart with error bars
+
 error_bar <- function(data, x, categorize_by, legend = "right", ...) {
   x_val <- rlang::enquo(x)
   cat <- rlang::enquo(categorize_by)
@@ -126,16 +166,23 @@ error_bar <- function(data, x, categorize_by, legend = "right", ...) {
                                         )) +
     ggplot2::labs(y = names(summary)[[2]]) +
     ggplot2::geom_bar(stat = "identity", ...) +
-    ggplot2::geom_errorbar() +
+    ggplot2::geom_errorbar(...) +
     viridis::scale_fill_viridis(discrete = TRUE, option = "D") +
     ggplot2::theme(legend.position = {{legend}})
   suppressWarnings(plotly::ggplotly(plot, tooltip = c("text"),
                                     legendgroup= cat))
 }
 
-error_bar(iris, Sepal.Length, Species)
+# error_bar(iris, Sepal.Length, Species)
 
-# b
+#' Creates an interactive stacked barchart.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An interactive stacked barchart
+
 stack_bar <- function(data, x, categorize_by, legend = "right",...) {
    plot <- ggplot2::ggplot(data = {{data}},
                            mapping = ggplot2::aes(x = {{x}}, fill = {{categorize_by}})) +
@@ -146,9 +193,16 @@ stack_bar <- function(data, x, categorize_by, legend = "right",...) {
                     legendgroup= cat)
 }
 
-stack_bar(data = iris, x = Sepal.Length, categorize_by = Species)
+# stack_bar(data = iris, x = Sepal.Length, categorize_by = Species)
 
-# c
+#' Creates an interactive side-by-side barchart.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An interactive side-by-side barchart
+
 par_bar <- function(data, x, categorize_by, legend = "right", ...) {
   plot <- ggplot2::ggplot(data = {{data}},
                           mapping = ggplot2::aes(x = {{x}}, fill = {{categorize_by}})) +
@@ -159,11 +213,18 @@ par_bar <- function(data, x, categorize_by, legend = "right", ...) {
                    legendgroup= cat)
 }
 
-par_bar(data = iris, x = Sepal.Length, categorize_by = Species, legend = "none")
+# par_bar(data = iris, x = Sepal.Length, categorize_by = Species, legend = "none")
 
-# (2 numeric, split by 1 cat)
+#' Creates an interactive barchart faceted by a categorical variable.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame that is plotted on the x-axis
+#' @param y A numeric variable from the data frame that is plotted on the y-axis
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An interactive barchart faceted by a categorical variable
 
-facet_bar <- function(data, x, y, categorize_by, ...) {
+facet_bar <- function(data, x, y, categorize_by) {
   x_val <- rlang::enquo(x)
   y_val <- rlang::enquo(y)
   cat <- rlang::enquo(categorize_by)
@@ -178,11 +239,16 @@ facet_bar <- function(data, x, y, categorize_by, ...) {
   plotly::subplot(nrows = 1, shareX = TRUE, shareY=TRUE)
 }
 
-facet_bar(iris, Sepal.Length, Sepal.Width, Species)
+# facet_bar(iris, Sepal.Length, Sepal.Width, Species)
 
-# boxplots
-# (1 numeric variable)
-box <- function(data, x,...) {
+#' Creates an interactive boxplot.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame
+#'
+#' @return An interactive boxplot
+
+box <- function(data, x) {
   x_val <- rlang::enquo(x)
   plotly::plot_ly(data, x = x_val,
                   hoverinfo = 'x',
@@ -191,11 +257,18 @@ box <- function(data, x,...) {
                   fillcolor = "skyblue")
 }
 
-box(iris, Sepal.Length)
+# box(iris, Sepal.Length)
 
-# (1 numeric and 1 categorical)
+#' Creates interactive boxplots placed side-by-side with different colors representing different levels
+#' of the categorical variable.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An interactive side-by-side colored boxplot
 
-color_box <- function(data, x, categorize_by, legend = T,...) {
+color_box <- function(data, x, categorize_by, legend = T) {
   x_val <- rlang::enquo(x)
   cat <- rlang::enquo(categorize_by)
   choices <- dplyr::distinct(data, {{categorize_by}}) |>
@@ -208,11 +281,19 @@ color_box <- function(data, x, categorize_by, legend = T,...) {
                   showlegend = {{legend}})
 }
 
-color_box(iris, Sepal.Length, Species, legend = F)
+# color_box(iris, Sepal.Length, Species, legend = F)
 
-# (2 categorical, 1 numeric)
+#' Creates interactive boxplots placed side-by-side with different colors representing different levels
+#' of one categorical variable, split by the levels of another categorical variable on the x-axis.
+#'
+#' @param data A data frame
+#' @param x_cat A categorical variable from the data frame that is plotted on the x-axis
+#' @param y A numeric variable from the data frame that is plotted on the y-axis
+#' @param group A categorical variable from the data frame that is represented through color
+#'
+#' @return An interactive grouped boxplot
 
-group_box <- function(data, x_cat, y, group,...) {
+group_box <- function(data, x_cat, y, group) {
   x_val <- rlang::enquo(x_cat)
   y_val <- rlang::enquo(y)
   cat <- rlang::enquo(group)
@@ -227,16 +308,21 @@ group_box <- function(data, x_cat, y, group,...) {
 
 }
 
-data <- iris
-data$new <- sample(3, size = nrow(data), replace = TRUE)
-data$new <- as.factor(data$new)
+# data <- iris
+# data$new <- sample(3, size = nrow(data), replace = TRUE)
+# data$new <- as.factor(data$new)
 
-group_box(data, new, Sepal.Length, Species)
+# group_box(data, new, Sepal.Length, Species)
 
-# histograms
-# (1 numeric)
 
-hist <- function(data, x,...) {
+#' Creates an interactive histogram.
+#'
+#' @param data A data frame
+#' @param x A categorical variable from the data frame
+#'
+#' @return An interactive histogram
+
+hist <- function(data, x) {
   x_val <- rlang::enquo(x)
   plotly::plot_ly(data, x = x_val,
                   type = "histogram",
@@ -244,10 +330,17 @@ hist <- function(data, x,...) {
                   )
 }
 
-hist(iris, Sepal.Length)
+# hist(iris, Sepal.Length)
 
-# (1 numeric, split by 1 cat)
-overlap_hist <- function(data, x, categorize_by,...) {
+#' Creates an overlapping histogram.
+#'
+#' @param data A data frame
+#' @param x A numeric variable from the data frame
+#' @param categorize_by A categorical variable from the data frame
+#'
+#' @return An interactive overlapping histogram
+
+overlap_hist <- function(data, x, categorize_by) {
   x_val <- rlang::enquo(x)
   x_name <- deparse(substitute(x))
   choices <- dplyr::distinct(data, {{categorize_by}}) |>
@@ -279,7 +372,7 @@ overlap_hist <- function(data, x, categorize_by,...) {
                    )
   final_fig
 }
-overlap_hist(iris, Sepal.Length, Species)
+# overlap_hist(iris, Sepal.Length, Species)
 
 
 
