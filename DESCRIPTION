@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Ladan", given = "Yang", email = "cyang93@smith.edu", role = c("aut", "cre")),
     person("Ari", given = "Cross", email = "arlena20cross@gmail.com", role = c("aut", "cre")),
-    person("Nikki", given = "Lin", email = "nlin@smith.edu", role = c("aut", "cre"))
-)
+    person("Nikki", given = "Lin", email = "nlin@smith.edu", role = c("aut", "cre")))
 Maintainer: Ladan Yang <cyang93@smith.edu>
 Description: |
   This package takes a data set as user input and creates visualizations. 
