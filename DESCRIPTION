@@ -1,21 +1,21 @@
 Package: explore
-Title: Make visualizations for Statistical, Spatial, and Neural Data
+Title: Make Visualizations for Statistical, Spatial, and Neural Data
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Ladan", "Yang", , "cyang93@smith.edu", role = c("aut", "cre")),
-    person("Ari", "Cross", , "arlena20cross@gmail.com", role = c("aut", "cre")),
-    person("Nikki", "Lin", , "nlin@smith.edu", role = c("aut", "cre"))
+    person("Ladan", "Yang", "cyang93@smith.edu", role = c("aut", "cre")),
+    person("Ari", "Cross", "arlena20cross@gmail.com", role = c("aut", "cre")),
+    person("Nikki", "Lin", "nlin@smith.edu", role = c("aut", "cre"))
   )
 Maintainer: Ladan Yang <cyang93@smith.edu>
-Description: This package will take a data set as user input and create
-    visualizations.  Optionally, functions will also take a variable and
-    produce plots based on the type of variable.  Basic explore functions
-    take statistical data and outputs histograms, boxplots, line graphs
-    and scatterplots.  Spatial functions take polygon/multipolygon or
-    point data and outputs scaled, gradient, geometric mapping or dot and
-    heat mapping.  Neural functions take the neural spiking data (first
-    column spiking time/location, second column trials number or neuron
-    number), and create a raster plot with perievent histogram.
+Description: |
+  This package takes a data set as user input and creates visualizations. 
+  Optionally, functions will also take a variable and produce plots based on 
+  the type of variable. Basic explore functions take statistical data and output 
+  histograms, boxplots, line graphs, and scatterplots. Spatial functions take 
+  polygon/multipolygon or point data and output scaled, gradient, geometric 
+  mapping, or dot and heat mapping. Neural functions take the neural spiking 
+  data (first column spiking time/location, second column trials number or 
+  neuron number) and create a raster plot with perievent histogram.
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
