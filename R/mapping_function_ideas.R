@@ -1,12 +1,3 @@
-library(sf)
-library(leaflet)
-library(viridis)
-library(leaflet.extras)
-library(devtools)
-library(ggplot2)
-library(tmap)
-library(dplyr)
-
 
 
 #' Plot spatial data frames with class "POINT"
@@ -23,11 +14,11 @@ library(dplyr)
 #' explore_points(point_data2)
 #'
 #'
-#' @importFrom sf
-#' @importFrom leaflet
-#' @importFrom leaflet.extras
-#' @importFrom tmap
-#' @importFrom dplyr
+#' @import sf
+#' @import leaflet
+#' @import leaflet.extras
+#' @import tmap
+#' @import dplyr
 #'
 #' @export
 
@@ -78,11 +69,11 @@ explore_points <- function(data, variable = NULL) {
 #'
 #' plot_polygon_factory(var_column = "AREA")$plot_scaled(polygon_data)
 #'
-#' @importFrom sf
-#' @importFrom leaflet
-#' @importFrom leaflet.extras
-#' @importFrom tmap
-#' @importFrom dplyr
+#' @import sf
+#' @import leaflet
+#' @import leaflet.extras
+#' @import tmap
+#' @import dplyr
 #'
 #' @export
 
