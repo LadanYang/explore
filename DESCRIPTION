@@ -23,11 +23,12 @@ Description: |
   This package takes a data set as user input and creates visualizations. 
   Optionally, functions will also take a variable and produce plots based on 
   the type of variable. Basic explore functions take statistical data and output 
-  histograms, boxplots, line graphs, and scatterplots. Spatial functions take 
-  polygon/multipolygon or point data and output scaled, gradient, geometric 
-  mapping, or dot and heat mapping. Neural functions take the neural spiking 
-  data (first column spiking time/location, second column trials number or 
-  neuron number) and create a raster plot with perievent histogram.
+  interactive scatterplots, linegraphs, boxplots, histograms, and more to illustrate 
+  the distribution of one numeric or categorical variable or the relationship between 
+  multiple variables. Spatial functions take polygon/multipolygon or point data and 
+  output scaled, gradient, geometric mapping, or dot and heat mapping. Neural 
+  functions take the neural spiking data (first column spiking time/location, 
+  second column trials number or neuron number) and create a raster plot with perievent histogram.
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
