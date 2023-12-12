@@ -1,13 +1,29 @@
 Package: explore
-Title: (One Line, Title Case)
+Title: Make visualizations for Statistical, Spatial, and Neural Data
 Version: 0.0.0.9000
-Authors@R: 
-    person("Ladan", "Yang", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Ladan", "Yang", email = "hadley@posit.co", role = c("aut", "cre")),
+    person("Ari", "Cross", email = "jenny@posit.co", role = c("aut", "cre")),
+    person("Nikki", "Lin", email = "nlin@smith.edu", role = c("aut", "cre")))
+Description: This package will take a data set as user input and create visualizations.  
+Optionally, functions will also take a variable and produce plots based on the type of variable.  
+Basic explore functions take statistical data and outputs histograms, boxplots, line graphs and scatterplots.  
+Spatial functions take polygon/multipolygon or point data and outputs scaled, gradient, geometric mapping or dot and heat mapping.  
+Neural functions take the neural spiking data (first column spiking time/location, second column trials number or neuron number),
+and create a raster plot with perievent histogram.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Imports: 
+    dplyr,
+    ggplot2,
+    plotly,
+    sf,
+    tidyr,
+    tmap,
+    viridis
