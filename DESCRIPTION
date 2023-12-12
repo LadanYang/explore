@@ -41,7 +41,7 @@ Imports:
     viridis,
     rAmCharts4,
     R.matlab,
-    Leaflet.extras
+    
     
 Encoding: UTF-8
 LazyData: true

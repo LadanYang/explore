@@ -16,7 +16,6 @@
 #'
 #' @import sf
 #' @import leaflet
-#' @import leaflet.extras
 #' @import tmap
 #' @import dplyr
 #'
@@ -71,7 +70,6 @@ explore_points <- function(data, variable = NULL) {
 #'
 #' @import sf
 #' @import leaflet
-#' @import leaflet.extras
 #' @import tmap
 #' @import dplyr
 #'
