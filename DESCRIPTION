@@ -1,7 +1,7 @@
 Package: explore
 Title: Make visualizations for Statistical, Spatial, and Neural Data
 Version: 0.0.0.9000
-Authors@R: c(
+Authors@R: c( 
     person("Ladan", "Yang", email = "hadley@posit.co", role = c("aut", "cre")),
     person("Ari", "Cross", email = "jenny@posit.co", role = c("aut", "cre")),
     person("Nikki", "Lin", email = "nlin@smith.edu", role = c("aut", "cre")))
