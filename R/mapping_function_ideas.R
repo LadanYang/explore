@@ -8,11 +8,6 @@
 #'
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
 #'
-#' @examples
-#' point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
-#' point_data2 <- st_as_sf(point_data)
-#' explore_points(point_data2)
-#'
 #'
 #' @import sf
 #' @import leaflet
@@ -61,12 +56,6 @@ explore_points <- function(data, variable = NULL) {
 #'
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
 #'
-#' @examples
-#' plot_polygon_factory()$plot_basic(polygon_data)
-#'
-#' plot_polygon_factory(var_column = "FIPS")$plot_scaled(polygon_data)
-#'
-#' plot_polygon_factory(var_column = "AREA")$plot_scaled(polygon_data)
 #'
 #' @import sf
 #' @import leaflet
