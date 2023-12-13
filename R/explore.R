@@ -200,4 +200,3 @@ explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL)
     plot_final = plot_final
   ))
 }
-

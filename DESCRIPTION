@@ -31,7 +31,8 @@ Description: |
   second column trials number or neuron number) and create a raster plot with perievent histogram.
 License: MIT + file LICENSE
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10),
+    leaflet
 Imports: 
     dplyr,
     ggplot2,
