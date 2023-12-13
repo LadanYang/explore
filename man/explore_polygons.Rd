@@ -27,16 +27,7 @@ Plot spatial data frames with class "POLYGON" or "MULTIPOLYGON"
 Given a spatial data frame will produce a list of different types of visualizations.
 }
 \examples{
-plot_polygon_factory()$plot_basic(polygon_data)
 
-plot_polygon_factory(var_column = "FIPS")$plot_scaled(polygon_data)
 
-plot_polygon_factory(var_column = "AREA")$plot_scaled(polygon_data)
-
-plot_polygon_factory()$plot_basic(polygon_data)
-
-plot_polygon_factory(var_column = "FIPS")$plot_scaled(polygon_data)
-
-plot_polygon_factory(var_column = "AREA")$plot_scaled(polygon_data)
 
 }
