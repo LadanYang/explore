@@ -79,7 +79,7 @@ explore.single_cell <- function(single_cell,
 #'
 #'
 #'
-#' @import sf
+#' @importFrom sf
 #' @import leaflet
 #' @import tmap
 #' @import dplyr
@@ -127,7 +127,7 @@ explore_points <- function(data, variable = NULL) {
 #'
 #'
 #'
-#' @import sf
+#' @importFrom  sf
 #' @import leaflet
 #' @import tmap
 #' @import dplyr
