@@ -1,21 +1,5 @@
 
 
-#' Plot spatial data frames with class "POINT"
-#' Given a spatial data frame will produce a list of different types of visualizations.
-#'
-#' @param dataframe with geometry of "point" class
-#'
-#'
-#' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
-#'
-#'
-#' @import sf
-#' @import leaflet
-#' @import tmap
-#' @import dplyr
-#'
-#' @export
-
 explore_points <- function(data, variable = NULL) {
 
   if (!inherits(data, "sf")) {
@@ -47,22 +31,7 @@ explore_points <- function(data, variable = NULL) {
 
 }
 
-#' Plot spatial data frames with class "POLYGON" or "MULTIPOLYGON"
-#' Given a spatial data frame will produce a list of different types of visualizations.
-#'
-#' @param dataframe with geometry of "POLYGON" or "MULTIPOLYGON" class
-#'
-#' @param var_column optional variable to plot a scaled and/or gradient map
-#'
-#' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
-#'
-#'
-#' @import sf
-#' @import leaflet
-#' @import tmap
-#' @import dplyr
-#'
-#' @export
+
 
 
 explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL) {
