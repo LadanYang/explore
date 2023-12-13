@@ -27,3 +27,4 @@ Given a spatial data frame will produce a list of different types of visualizati
 \examples{
 
 }
+
