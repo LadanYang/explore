@@ -41,7 +41,8 @@ Imports:
     tmap,
     viridis,
     rAmCharts4,
-    R.matlab
+    R.matlab,
+    gridExtra
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
