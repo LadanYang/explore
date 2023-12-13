@@ -61,7 +61,7 @@ explore.single_cell <- function(single_cell,
     )
 
   # Combine both plots
-  print(grid.arrange(gg_raster, gg_psth, ncol = 1, heights = c(2, 1)))
+  grid.arrange(gg_raster, gg_psth, ncol = 1, heights = c(2, 1))
 
 }
 
