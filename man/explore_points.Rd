@@ -24,7 +24,3 @@ Given a spatial data frame will produce a list of different types of visualizati
 Plot spatial data frames with class "POINT"
 Given a spatial data frame will produce a list of different types of visualizations.
 }
-\examples{
-
-}
-
