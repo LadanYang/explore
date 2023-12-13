@@ -25,14 +25,5 @@ Plot spatial data frames with class "POINT"
 Given a spatial data frame will produce a list of different types of visualizations.
 }
 \examples{
-point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
-point_data2 <- st_as_sf(point_data)
-explore_points(point_data2)
-
-
-point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
-point_data2 <- st_as_sf(point_data)
-explore_points(point_data2)
-
 
 }
