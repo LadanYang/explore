@@ -1,0 +1,38 @@
+---
+title: "raster"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{raster}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(explore)
+```
+
+##explore Data
+
+##Ploting single_cell spiking data (raster plot and perievent histogram)
+
+To plot spiking data, we need to convert matlab file into single_cell object
+```{r example}
+library(explore)
+
+# convert matlab
+cell_data<-single_cell("https://github.com/LadanYang/explore/raw/main/data-raw/xydata.mat")
+
+```
+
+Then we can use explore function to plot the graph
+
+```{r}
+explore(cell_data)
+```
