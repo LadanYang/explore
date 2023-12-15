@@ -1,10 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# explore
-
-<!-- badges: start -->
-<!-- badges: end -->
+# Explore
 
 The goal of explore is to quickly visualize the datasets without having
 to write intensive codes. The graph can be multiple plots that are
@@ -64,3 +61,8 @@ You can also embed plots, for example:
 
 In that case, don’t forget to commit and push the resulting figure
 files, so they display on GitHub and CRAN.
+
+\##Explore Mapping Functions
+
+Explore mapping functions allow users to input point or
+polygon/multipolygon data.

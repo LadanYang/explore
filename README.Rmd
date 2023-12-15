@@ -4,11 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# explore
-
-<!-- badges: start -->
-
-<!-- badges: end -->
+# Explore
 
 The goal of explore is to quickly visualize the datasets without having to write intensive codes. The graph can be multiple plots that are interactive and also include multiple discipline: statistics, geographic information system(GIS), and neuroscience.
 
