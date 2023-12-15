@@ -24,7 +24,7 @@ num_1 <- function(data, x){
   plotly::subplot(boxplot, histogram, nrows = 2, shareX = TRUE)
 }
 
-# num_1(iris, Sepal.Length)
+num_1(iris, Sepal.Length)
 
 #' Generates visualizations for the distribution of two numeric variables.
 #' Given a dataframe and the names of two numeric variable in that dataframe, this

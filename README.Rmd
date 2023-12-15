@@ -68,14 +68,14 @@ num1_cat1(iris, Sepal.Length, Species)
 ``` r
 num2_cat1(iris, Sepal.Length, Sepal.Width, Species)
 ```
-*One numeric variable and two categorical variables *
+*One numeric variable and two categorical variables*
 ``` r
 # Creating new categorical column in the iris dataset
 iris <- iris
 random <- c("a", "b", "c")
 iris$cat <- sample(random, size = nrow(data), replace = TRUE)
 
-num1_cat2(data, cat, Sepal.Length, Species)
+num1_cat2(iris, cat, Sepal.Length, Species)
 ```
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`
 up-to-date. `devtools::build_readme()` is handy for this.

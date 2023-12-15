@@ -316,7 +316,7 @@ group_box <- function(data, x_cat, y, group) {
 # random <- c("a", "b", "c")
 # iris$cat <- sample(random, size = nrow(data), replace = TRUE)
 
-group_box(data, cat, Sepal.Length, Species)
+# group_box(data, cat, Sepal.Length, Species)
 
 
 #' Creates an interactive histogram.
