@@ -1,9 +1,12 @@
 #' Creates an interactive scatterplot.
-#' @import rAmCharts4
 #' @import viridis
 #' @import ggplot2
 #' @import dplyr
-#' @import plotly
+#' @importFrom plotly plot_ly
+#' @importFrom plotly ggplotly
+#' @importFrom plotly subplot
+#' @importFrom plotly layout
+#' @importFrom plotly add_histogram
 #' @param data A data frame
 #' @param x A numeric variable from the data frame that is plotted on the x-axis
 #' @param y A numeric variable from the data frame that is plotted on the y-axis

@@ -12,9 +12,13 @@
 #'
 #' @import ggplot2
 #' @import dplyr
-#' @import plotly
 #' @import viridis
 #' @importFrom tidyr spread
+#' @importFrom plotly plot_ly
+#' @importFrom plotly ggplotly
+#' @importFrom plotly subplot
+#' @importFrom plotly layout
+#' @importFrom plotly add_histogram
 
 #' @export
 num_1 <- function(data, x){
