@@ -59,7 +59,7 @@ num_1(iris, Sepal.Length)
 *Two numeric variables*
 
 ``` r
- numeric_2(iris, Sepal.Length, Sepal.Width)
+ num_2(iris, Sepal.Length, Sepal.Width)
 ```
 
 *One categorical variable*
