@@ -4,12 +4,13 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# explore
+# Explore
 
 The goal of explore is to automatically generate visualizations given variables 
 in a dataset across the disciplines statistics, geography, and neuroscience. It 
 generates interactive graphs such scatterplots and boxplots for statistical analysis; 
 maps for geographic information (GIS) data; and raster plots for the firing of a neuron.
+
 
 ## Installation
 
@@ -42,6 +43,7 @@ explore(cell_data,
         shade_off=150,
         shade_color="pink")
 ```
+<img src="man/figures/raster_PSTH_example.jpg" width="100%"/>
 
 ### Statistical Analysis
 The following examples illustrate ways to visualize the distribution of variables in your dataframe
@@ -75,4 +77,12 @@ iris$cat <- sample(random, size = nrow(data), replace = TRUE)
 
 num1_cat2(data, cat, Sepal.Length, Species)
 ```
+You’ll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this.
 
+You can also embed plots, for example:
+
+<img src="man/figures/raster_PSTH_example.jpg" width="100%"/>
+
+In that case, don’t forget to commit and push the resulting figure
+files, so they display on GitHub and CRAN.
