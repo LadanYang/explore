@@ -1,5 +1,5 @@
 ---
-title: "basic_graphs"
+title: "Exploration Graphs for Variables in Dataframes"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{basic_graphs}
@@ -17,3 +17,65 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(explore)
 ```
+
+# Basic Exploration Functions  
+
+Different basic explore functions, depending on variable type (numeric or categorical) and variable count (1 or 2), take a dataframe and variable names as input and output interactive plots to illustrate the distribution of one variable or the relationship between multiple variables.
+
+## Exploration of 1 numeric variable  
+
+Given a dataframe and the name of a numeric variable in that dataframe, this function generates interactive plots showing the distribution of that variable.
+
+```{r example}
+library(explore)
+
+num_1(iris, Sepal.Length)
+```
+
+## Exploration of 2 numeric variables   
+
+Given a dataframe and the names of two numeric variable in that dataframe, this function generates interactive plots showing the distribution of one variable against the other.
+
+```{r}
+num_2(iris, Sepal.Length, Sepal.Width)
+```
+
+## Exploration of 1 categorical variable  
+
+Generates visualizations for the distribution of one categorical variable.
+
+```{r}
+cat_1(iris, Species)
+```
+
+## Exploration of 1 numeric variable and 1 categorical variable  
+
+Generates visualizations for the distribution of one numeric variable split by 
+one categorical variable and vice versa.
+
+```{r}
+num1_cat1(iris, Sepal.Length, Species)
+```
+
+## Exploration of 2 numeric variables and 1 categorical variable  
+Generates visualizations for the distribution of two numeric variables split by one categorical variable.
+
+```{r}
+num2_cat1(iris, Sepal.Length, Sepal.Width, Species)
+```
+
+## Exploration of 1 numeric variable and 2 categorical variables  
+Generates a visualization for the distribution of two categorical variables based on one numeric variable.
+
+```{r}
+# Creating new categorical column in the iris dataset
+iris <- iris
+random <- c("a", "b", "c")
+iris$cat <- sample(random, size = nrow(data), replace = TRUE)
+
+num1_cat2(iris, cat, Sepal.Length, Species)
+```
+
+
+
+
