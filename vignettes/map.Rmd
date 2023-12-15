@@ -1,8 +1,8 @@
 ---
-title: "map"
+title: "Explore Mapping"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{map}
+  %\VignetteIndexEntry{Explore Mapping}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -17,3 +17,30 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(explore)
 ```
+
+Explore's mapping functions 'explore_points' and 'explore_polygons' aim to help users visualize spatial data efficiently.
+
+### Inspiration 
+
+Mapping in R is hard. Explore mapping functions simplify the steps needed to create tidy and advanced visualizations with point and polygon/multipolygon data. These functions within the explore package are useful for anyone wanting to visualize their raster data simply and efficiently
+
+### Functions
+
+Each function takes a data frame with a 'geometry' column and plots accordingly on to an OpenStreetMap interactive base.
+
+* `explore_points()` visualizes geometry of class 'point' with two visualizations; a point or dot map as well as a heat map that are output into a list.  
+
+* `explore_polygons()` visualizes geometry of class 'polygon' or 'multipolygon' in three visualizations; a basic plot of geometric shapes, a classed map, and a gradient map.  Maps are output into a list.
+
+```{r}
+example <- explore_points(points)
+```
+
+
+
+
+
+
+
+
+
