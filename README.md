@@ -100,3 +100,76 @@ You can also embed plots, for example:
 
 In that case, don’t forget to commit and push the resulting figure
 files, so they display on GitHub and CRAN.
+
+### Spatial Data
+
+Load Example Data
+
+``` r
+library(explore)
+```
+
+    ## Loading required package: leaflet
+
+    ## Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'
+    ## when loading 'explore'
+
+    ## The legacy packages maptools, rgdal, and rgeos, underpinning this package
+    ## will retire shortly. Please refer to R-spatial evolution reports on
+    ## https://r-spatial.org/r/2023/05/15/evolution4.html for details.
+    ## This package is now running under evolution status 0
+
+``` r
+library(sf)
+```
+
+    ## Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE
+
+``` r
+#load spatial data for explore_points and explore_polygon functions
+point_data <- st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100)
+```
+
+    ## Reading layer `nc' from data source 
+    ##   `/Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/library/sf/shape/nc.shp' 
+    ##   using driver `ESRI Shapefile'
+    ## Simple feature collection with 100 features and 14 fields
+    ## Geometry type: MULTIPOLYGON
+    ## Dimension:     XY
+    ## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+    ## Geodetic CRS:  NAD27
+
+``` r
+point_data2 <- st_as_sf(point_data)
+
+polygon_data <- st_read(system.file("shape/nc.shp", package="sf"))
+```
+
+    ## Reading layer `nc' from data source 
+    ##   `/Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/library/sf/shape/nc.shp' 
+    ##   using driver `ESRI Shapefile'
+    ## Simple feature collection with 100 features and 14 fields
+    ## Geometry type: MULTIPOLYGON
+    ## Dimension:     XY
+    ## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+    ## Geodetic CRS:  NAD27
+
+Apply Functions
+
+``` r
+library(explore)
+library(sf)
+#points -- this produces two plots that are accessible through the back and forward arrows in the viewer
+#explore::explore_points(point_data2)
+
+#other usage for extracting single plots
+#xplore_polygons()$plot_basic(polygon_data)
+
+#explore_polygons(var_column = "FIPS")$plot_scaled(polygon_data)
+
+#explore_polygons(var_column = "AREA")$plot_scaled(polygon_data)
+```
+
+<img src="man/figures/scaled.png" width="100%"/>
+
+<img src="man/figures/Rplot" width="100%"/>
