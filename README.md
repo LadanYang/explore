@@ -6,10 +6,10 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of explore is to quickly visualize the datasets without having
-to write intensive codes. The graph can be multiple plots that are
-interactive and also include multiple discipline: statistics, geographic
-information system(GIS), and neuroscience.
+The goal of explore is to automatically generate visualizations given variables 
+in a dataset across the disciplines statistics, geography, and neuroscience. It 
+generates interactive graphs such scatterplots and boxplots for statistical analysis; 
+maps for geographic information (GIS) data; and raster plots for the firing of a neuron.
 
 ## Installation
 
