@@ -82,7 +82,7 @@ num2_cat1(iris, Sepal.Length, Sepal.Width, Species)
 # Creating new categorical column in the iris dataset
 iris <- iris
 random <- c("a", "b", "c")
-iris$cat <- sample(random, size = nrow(data), replace = TRUE)
+iris$cat <- sample(random, size = nrow(iris), replace = TRUE)
 
 num1_cat2(iris, cat, Sepal.Length, Species)
 ```

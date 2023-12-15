@@ -317,7 +317,7 @@ group_box <- function(data, x_cat, y, group) {
 
 # iris <- iris
 # random <- c("a", "b", "c")
-# iris$cat <- sample(random, size = nrow(data), replace = TRUE)
+# iris$cat <- sample(random, size = nrow(iris), replace = TRUE)
 
 # group_box(data, cat, Sepal.Length, Species)
 

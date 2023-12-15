@@ -159,7 +159,7 @@ num1_cat2 <- function(data, x_cat, y, group,...) {
   suppressWarnings(print(plotly::subplot(groupbox, nrows = 1)))
 }
 
-# num1_cat2(data, new, Sepal.Length, Species)
+# num1_cat2(iris, cat, Sepal.Length, Species)
 
 
 
