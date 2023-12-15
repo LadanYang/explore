@@ -40,14 +40,14 @@ num_1 <- function(data, x){
 #' Note: both plots contain hover information
 
 #' @export
-numeric_2 <- function(data, x, y){
+num_2 <- function(data, x, y){
   scatterplot <- scatter(data, {{x}}, {{y}})
   linegraph <- line(data, {{x}}, {{y}})
 
   plotly::subplot(scatterplot, linegraph, nrows = 2, shareX = TRUE, shareY = TRUE)
 }
 
-# numeric_2(iris, Sepal.Length, Sepal.Width)
+# num_2(iris, Sepal.Length, Sepal.Width)
 
 #' Generates visualizations for the distribution of one categorical variable.
 #' Given a dataframe and the name of one categorical variable in that dataframe, this
@@ -147,6 +147,8 @@ num2_cat1 <- function(data, x, y, categorize_by,...) {
 #'
 #' @return An interactive colored boxplot
 #' Note: this plot contains hover information
+
+#' @export
 num1_cat2 <- function(data, x_cat, y, group,...) {
   groupbox <- group_box(data, {{x_cat}}, {{y}}, {{group}})
 
