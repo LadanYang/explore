@@ -312,11 +312,11 @@ group_box <- function(data, x_cat, y, group) {
 
 }
 
-# data <- iris
-# data$new <- sample(3, size = nrow(data), replace = TRUE)
-# data$new <- as.factor(data$new)
+# iris <- iris
+# random <- c("a", "b", "c")
+# iris$cat <- sample(random, size = nrow(data), replace = TRUE)
 
-# group_box(data, new, Sepal.Length, Species)
+group_box(data, cat, Sepal.Length, Species)
 
 
 #' Creates an interactive histogram.
