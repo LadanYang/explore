@@ -1,4 +1,8 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
-})
+library(vdiffr)
 
+test_that("plotting the graphs given 2 numeric variables works", {
+  expect_doppelganger(
+    title = "2 numeric var",
+    fig = num_2(iris, Sepal.Length, Sepal.Width)
+  )
+})

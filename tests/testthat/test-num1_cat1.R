@@ -1,8 +1,8 @@
 library(vdiffr)
 
-test_that("plotting the graphs given 1 numeric and 1 categorical variable works", {
+test_that("plotting the graphs given 1 numeric variable and 1 categorical variable works", {
   expect_doppelganger(
-    title = "xkcd 1",
-    fig = plot(xkcd(1))
+    title = "1 numeric 1 cat var",
+    cat_1(iris, Species)
   )
 })
