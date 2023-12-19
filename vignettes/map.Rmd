@@ -29,12 +29,28 @@ Mapping in R is hard. Explore mapping functions simplify the steps needed to cre
 Each function takes a data frame with a 'geometry' column and plots accordingly on to an OpenStreetMap interactive base.
 
 * `explore_points()` visualizes geometry of class 'point' with two visualizations; a point or dot map as well as a heat map that are output into a list.  
+```{r}
+library(sf)
+#import example data for explore_points
+point_data <- st_as_sf(st_sample(st_read(system.file("shape/nc.shp", package="sf")), 100))
 
+explore_points(point_data)
+
+```
 * `explore_polygons()` visualizes geometry of class 'polygon' or 'multipolygon' in three visualizations; a basic plot of geometric shapes, a classed map, and a gradient map.  Maps are output into a list.
 
 ```{r}
-#example <- explore_points(points)
+#import example data for explore_polygons
+polygon_data <- st_read(system.file("shape/nc.shp", package="sf"))
+
+explore_polygons(var_column = "FIPS")$plot_scaled(polygons)
+
+explore_polygons(var_column = "AREA")$plot_gradient(polygons)
+
+explore_polygons()$plot_basic(polygons)
+
 ```
+
 
 
 
