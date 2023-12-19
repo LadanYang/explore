@@ -33,7 +33,7 @@ Each function takes a data frame with a 'geometry' column and plots accordingly 
 * `explore_polygons()` visualizes geometry of class 'polygon' or 'multipolygon' in three visualizations; a basic plot of geometric shapes, a classed map, and a gradient map.  Maps are output into a list.
 
 ```{r}
-example <- explore_points(points)
+#example <- explore_points(points)
 ```
 
 
