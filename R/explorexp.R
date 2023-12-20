@@ -129,7 +129,7 @@ num1_cat1 <- function(data, x, categorize_by, ...){
 #' Note: all plots contain hover information
 
 #' @export
-num2_cat1 <- function(data, x, y, categorize_by,...) {
+num2_cat1 <- function(data, x, y, categorize_by) {
   colorscatter <- color_scatter(data, {{x}}, {{y}}, {{categorize_by}})
   colorline <- color_line(data, {{x}}, {{y}}, {{categorize_by}})
   facetbar <- facet_bar(data, {{x}}, {{y}}, {{categorize_by}})
@@ -149,11 +149,12 @@ num2_cat1 <- function(data, x, y, categorize_by,...) {
 #' @param y A numeric variable from the data frame that is plotted on the y-axis
 #' @param group A categorical variable from the data frame that is represented through color
 #'
+#'
 #' @return An interactive colored boxplot
 #' Note: this plot contains hover information
 
 #' @export
-num1_cat2 <- function(data, x_cat, y, group,...) {
+num1_cat2 <- function(data, x_cat, y, group) {
   groupbox <- group_box(data, {{x_cat}}, {{y}}, {{group}})
 
   suppressWarnings(print(plotly::subplot(groupbox, nrows = 1)))

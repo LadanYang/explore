@@ -93,10 +93,11 @@ color_line <- function(data, x, y, categorize_by) {
 #'
 #' @param data A data frame
 #' @param x A categorical variable from the data frame
+#' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive barchart
 
-bar2 <- function(data, x,...) {
+bar2 <- function(data, x, ...) {
   plot <- ggplot2::ggplot(data = data,
                           mapping = ggplot2::aes(x = {{x}}, fill = {{x}})) +
     ggplot2::geom_bar(...) +
@@ -134,7 +135,7 @@ bar <- function(data, x) {
 #'
 #' @return An interactive pie chart
 
-pie <- function(data, x, ...){
+pie <- function(data, x){
   count <- dplyr::count(x = data, {{x}})
   choices <- length(unique(count[[as_label(dplyr::enquo(x))]]))
   plotly::plot_ly(labels = count[[as_label(dplyr::enquo(x))]],
@@ -153,6 +154,8 @@ pie <- function(data, x, ...){
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
+#' @param lengend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
+#' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive barchart with error bars
 
@@ -187,6 +190,8 @@ error_bar <- function(data, x, categorize_by, legend = "right", ...) {
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
+#' @param lengend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
+#' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive stacked barchart
 
@@ -207,6 +212,7 @@ stack_bar <- function(data, x, categorize_by, legend = "right",...) {
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
+#' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive side-by-side barchart
 
@@ -272,6 +278,7 @@ box <- function(data, x) {
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
+#' @param lengend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
 #'
 #' @return An interactive side-by-side colored boxplot
 
