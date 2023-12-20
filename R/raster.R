@@ -16,6 +16,9 @@ validate_single_cell <- function() {
 
 }
 
+
+#' Create a single_cell object from a .mat file
+#'
 #' @param matdat the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file
 #' @export
 #' @importFrom R.matlab readMat
