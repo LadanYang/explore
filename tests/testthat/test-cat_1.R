@@ -1,10 +1,14 @@
 library(vdiffr)
 
-test_that("plotting the graphs given 1 categorical variable works", {
+x <- cat_1(iris, Species)
+
+test_that("plotting the graphs given 1 categorical variable works",
+  suppressWarnings({
   expect_doppelganger(
     title = "1 categorical var",
-    cat_1(iris, Species)
+    x
   )
-})
+  })
+)
 
 
