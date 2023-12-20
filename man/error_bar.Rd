@@ -12,6 +12,10 @@ error_bar(data, x, categorize_by, legend = "right", ...)
 \item{x}{A numeric variable from the data frame}
 
 \item{categorize_by}{A categorical variable from the data frame}
+
+\item{legend}{Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'}
+
+\item{...}{Additional arguments passed onto ggplot2::geom_bar()}
 }
 \value{
 An interactive barchart with error bars

@@ -2,6 +2,8 @@
 #' @import viridis
 #' @import ggplot2
 #' @import dplyr
+#' @import purrr
+#' @importFrom rlang enquo
 #' @importFrom plotly plot_ly
 #' @importFrom plotly ggplotly
 #' @importFrom plotly subplot
@@ -154,7 +156,7 @@ pie <- function(data, x){
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
-#' @param lengend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
+#' @param legend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
 #' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive barchart with error bars
@@ -190,7 +192,7 @@ error_bar <- function(data, x, categorize_by, legend = "right", ...) {
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
-#' @param lengend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
+#' @param legend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
 #' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive stacked barchart
@@ -212,6 +214,7 @@ stack_bar <- function(data, x, categorize_by, legend = "right",...) {
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
+#' @param legend position of the legend. Default is "right"
 #' @param ... Additional arguments passed onto ggplot2::geom_bar()
 #'
 #' @return An interactive side-by-side barchart
@@ -278,7 +281,7 @@ box <- function(data, x) {
 #' @param data A data frame
 #' @param x A numeric variable from the data frame
 #' @param categorize_by A categorical variable from the data frame
-#' @param lengend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
+#' @param legend Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'
 #'
 #' @return An interactive side-by-side colored boxplot
 

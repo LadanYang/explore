@@ -4,7 +4,7 @@
 \alias{pie}
 \title{Creates an interactive pie chart.}
 \usage{
-pie(data, x, ...)
+pie(data, x)
 }
 \arguments{
 \item{data}{A data frame}
