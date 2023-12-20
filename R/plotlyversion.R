@@ -116,12 +116,12 @@ bar2 <- function(data, x,...) {
 bar <- function(data, x) {
   count <- dplyr::count(x = data, {{x}})
   # number of categories
-  choices <- length(unique(count[[as.character(rlang::enquo(x))[-1] ]]))
-  plotly::plot_ly(x = count[[as.character(rlang::enquo(x))[-1] ]],
+  choices <- length(unique(count[[as_label(rlang::enquo(x))]]))
+  plotly::plot_ly(x = count[[as_label(rlang::enquo(x))]],
                   y = count[["n"]],
                   showlegend = TRUE,
                   type = "bar",
-                  color = count[[as.character(rlang::enquo(x))[-1] ]],
+                  color = count[[as_label(rlang::enquo(x))]],
                   colors = viridis::viridis_pal(option = "D")(choices))
 }
 
@@ -136,8 +136,8 @@ bar <- function(data, x) {
 
 pie <- function(data, x, ...){
   count <- dplyr::count(x = data, {{x}})
-  choices <- length(unique(count[[as.character(dplyr::enquo(x))[-1] ]]))
-  plotly::plot_ly(labels = count[[as.character(dplyr::enquo(x))[-1] ]],
+  choices <- length(unique(count[[as_label(dplyr::enquo(x))]]))
+  plotly::plot_ly(labels = count[[as_label(dplyr::enquo(x))]],
                   values= count[["n"]],
                   type = "pie",
                   marker = list(colors = viridis::viridis_pal(option = "D")(choices)),
