@@ -25,3 +25,4 @@ test_that("explore_points throws an error for non-sf data", {
 })
 
 
+
