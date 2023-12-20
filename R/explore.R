@@ -136,7 +136,6 @@ explore_points <- function(data, variable = NULL) {
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
 #'
 #'
-#'
 #' @import  sf
 #' @import leaflet
 #' @import leaflet.extras
