@@ -68,12 +68,6 @@ num_1(iris, Sepal.Length)
 cat_1(iris, Species)
 ```
 
-*One numeric variable and one categorical variable*
-
-``` r
-num1_cat1(iris, Sepal.Length, Species)
-```
-
 *Two numeric variables and one categorical variable*
 
 ``` r
@@ -91,9 +85,13 @@ iris$cat <- sample(random, size = nrow(iris), replace = TRUE)
 num1_cat2(iris, cat, Sepal.Length, Species)
 ```
 
-You can also embed plots, for example:
+*One numeric variable and one categorical variable*
 
-<img src="man/figures/raster_PSTH_example.jpg" width="100%"/>
+``` r
+num1_cat1(iris, Sepal.Length, Species)
+```
+
+<img src="man/figures/1num1categ.png" width="100%"/>
 
 ### Spatial Data
 
@@ -107,10 +105,14 @@ library(explore)
 
     ## Loading required package: leaflet
 
-    ## The legacy packages maptools, rgdal, and rgeos, underpinning this package
-    ## will retire shortly. Please refer to R-spatial evolution reports on
-    ## https://r-spatial.org/r/2023/05/15/evolution4.html for details.
-    ## This package is now running under evolution status 0
+    ## The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
+    ## which was just loaded, will retire in October 2023.
+    ## Please refer to R-spatial evolution reports for details, especially
+    ## https://r-spatial.org/r/2023/05/15/evolution4.html.
+    ## It may be desirable to make the sf package available;
+    ## package maintainers should consider adding sf to Suggests:.
+    ## The sp package is now running under evolution status 2
+    ##      (status 2 uses the sf package in place of rgdal)
 
 ``` r
 library(sf)
