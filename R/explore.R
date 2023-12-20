@@ -1,12 +1,12 @@
 #' @export
-explore <- function(data,type,x, ...) {
+explore <- function(data, ...) {
   UseMethod("explore")
 }
 #Clara's Functions
 #' create peri-event histogram and raster plot for single_cell data
 #' @importFrom gridExtra grid.arrange
 #' @import ggplot2
-#' @param single_cell a [`single_cell`] object that has first column the spiking data and second column labeling the laps, trials or neurons
+#' @param data a [`single_cell`] object that has first column the spiking data and second column labeling the laps, trials or neurons
 #' @param xaxis the x axis label of the graph, default value as "Time"
 #' @param yaxis the y axis label of the raster plot, default value as "Trials"
 #' @param stim The name of the highlighted region, default value as "Stimulus"
@@ -15,7 +15,7 @@ explore <- function(data,type,x, ...) {
 #' @param shade_color The coloring of the shading, default value as "pink"
 #' @return a plot with raster plot of neurons firing patterns and histogram of counts of the firing
 #' @exportS3Method
-explore.single_cell <- function(single_cell,
+explore.single_cell <- function(data,
                                 xaxis="Time",
                                 yaxis="Trials",
                                 stim="Stimulus",
