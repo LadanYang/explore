@@ -13,6 +13,11 @@ par_bar(data, x, categorize_by, legend = "right", ...)
 
 \item{categorize_by}{A categorical variable from the data frame}
 
+<<<<<<< HEAD
+=======
+\item{legend}{position of the legend. Default is "right"}
+
+>>>>>>> 8c07eca1095379ef084a3ba8c9a1ab2d87420938
 \item{...}{Additional arguments passed onto ggplot2::geom_bar()}
 }
 \value{

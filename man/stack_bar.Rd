@@ -13,9 +13,15 @@ stack_bar(data, x, categorize_by, legend = "right", ...)
 
 \item{categorize_by}{A categorical variable from the data frame}
 
+<<<<<<< HEAD
 \item{...}{Additional arguments passed onto ggplot2::geom_bar()}
 
 \item{lengend}{Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'}
+=======
+\item{legend}{Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'}
+
+\item{...}{Additional arguments passed onto ggplot2::geom_bar()}
+>>>>>>> 8c07eca1095379ef084a3ba8c9a1ab2d87420938
 }
 \value{
 An interactive stacked barchart

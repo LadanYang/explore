@@ -36,12 +36,13 @@ Depends:
 Imports: 
     dplyr,
     ggplot2,
+    purrr,
     plotly,
     sf,
     tidyr,
     tmap,
     viridis,
-    rAmCharts4,
+    rlang,
     R.matlab,
     gridExtra,
     leaflet.extras
@@ -51,5 +52,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat,
+    vdiffr
 VignetteBuilder: knitr
