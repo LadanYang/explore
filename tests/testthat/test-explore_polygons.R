@@ -1,19 +1,19 @@
-test_that("geometry is polygon", {
-  expect_equal(2 * 2, 4)
-})
-
 library(testthat)
-library(explore)  # Replace 'your_package_name' with the actual name of your package
+library(tmap)
 
-test_that("Test if geometry is of class 'POLYGON' or 'MULTIPOLYGON'", {
-  # Create or load an 'sf' object for testing
-  your_sf_object <- ...  # Replace with your data or function call
 
-  # Call your function
-  result <- explore_polygons(your_sf_object)  # Replace with the actual function name
+#test for explore_polygons function
+test_that("explore_polygons works as expected", {
+  #create test data
+  polygons <- st_read(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
 
-  # Check the result using expect_true or expect_false
-  expect_true(result, "The geometry is of class 'POLYGON' or 'MULTIPOLYGON'")
-  # OR
-  # expect_false(result, "The geometry is NOT of class 'POLYGON' or 'MULTIPOLYGON'")
+  #test if the function returns a list
+  result <- explore_polygons(polygons)
+
+  #test if the result list contains plot_basic, plot_scaled, plot_gradient, and plot_final
+  expect_true("plot_basic" %in% names(result))
+  expect_true("plot_scaled" %in% names(result))
+  expect_true("plot_gradient" %in% names(result))
+  expect_true("plot_final" %in% names(result))
+
 })

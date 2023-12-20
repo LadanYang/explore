@@ -1,13 +1,22 @@
-test_that("Test if geometry is of class 'POINT'", {
-  # Create or load an 'sf' object for testing
-  your_sf_object <- ...  # Replace with your data or function call
+library(testthat)
+library(sf)
+library(leaflet)
 
-  # Call your function
-  result <- explore_points(your_sf_object)  # Replace with the actual function name
 
-  # Check the result using expect_true or expect_false
-  expect_true(result, "The geometry is of class 'POINT'")
-  # OR
-  # expect_false(result, "The geometry is NOT of class 'POINT'")
+#test for explore_points function
+test_that("explore_points works as expected", {
+  #create test data
+  points <- st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
+
+  #transform the data to WGS84 datum
+  points <- st_transform(test_data, crs = st_crs("+proj=longlat +datum=WGS84"))
+
+  #test if function returns a list
+  result <- explore_points(points)
+  expect_true(is.list(result))
+
+  #test if the result list contains point_map and heat_map
+  expect_true("point_map" %in% names(result))
+  expect_true("heat_map" %in% names(result))
+
 })
-
