@@ -1,3 +1,7 @@
+
+#' Generic function for creating graphs for data
+#' @param data The dataset to be visualize
+#' @param ... All the other inputs depending on the type of graphes
 #' @export
 explore <- function(data,...) {
   UseMethod("explore")
