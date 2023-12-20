@@ -7,7 +7,7 @@ one categorical variable.
 Given a dataframe and the names of two numeric variables and one categorical variable, this
 function generates interactive plots showing the distribution of these variables against each other.}
 \usage{
-num2_cat1(data, x, y, categorize_by, ...)
+num2_cat1(data, x, y, categorize_by)
 }
 \arguments{
 \item{data}{A data frame}

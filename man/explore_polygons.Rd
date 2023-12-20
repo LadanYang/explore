@@ -8,9 +8,9 @@ Given a spatial data frame will produce a list of different types of visualizati
 explore_polygons(base_map_type = "OpenStreetMap", var_column = NULL)
 }
 \arguments{
-\item{var_column}{optional variable to plot a scaled and/or gradient map}
+\item{base_map_type}{default basemap is set to OpenStreetMap}
 
-\item{dataframe}{with geometry of "POLYGON" or "MULTIPOLYGON" class}
+\item{var_column}{optional variable to plot a scaled and/or gradient map}
 }
 \value{
 A list of visualizations interactive visualizations accessible through exp. 'list$map'

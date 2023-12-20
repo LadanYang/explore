@@ -8,7 +8,9 @@ Given a spatial data frame will produce a list of different types of visualizati
 explore_points(data, variable = NULL)
 }
 \arguments{
-\item{dataframe}{with geometry of "point" class}
+\item{data}{with geometry of "point" class}
+
+\item{variable}{option to place a variable as user input}
 }
 \value{
 A list of visualizations interactive visualizations accessible through exp. 'list$map'

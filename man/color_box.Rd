@@ -13,6 +13,8 @@ color_box(data, x, categorize_by, legend = T)
 \item{x}{A numeric variable from the data frame}
 
 \item{categorize_by}{A categorical variable from the data frame}
+
+\item{lengend}{Logical. 'T' for displaying the legend and 'F' for hiding the legend. Default is 'T'}
 }
 \value{
 An interactive side-by-side colored boxplot

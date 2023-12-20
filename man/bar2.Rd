@@ -10,6 +10,8 @@ bar2(data, x, ...)
 \item{data}{A data frame}
 
 \item{x}{A categorical variable from the data frame}
+
+\item{...}{Additional arguments passed onto ggplot2::geom_bar()}
 }
 \value{
 An interactive barchart
