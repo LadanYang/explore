@@ -7,7 +7,7 @@
 single_cell(matdata)
 }
 \arguments{
-\item{matdat}{the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file}
+\item{matdata}{the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file}
 }
 \description{
 Create a single_cell object from a .mat file

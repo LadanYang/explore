@@ -1,6 +1,6 @@
 
 #'Given a matlab data set, this function creates a dataframe
-#'@param matdat the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file
+#'@param x the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file
 #'@export
 new_single_cell <- function(x) {
 
@@ -19,7 +19,7 @@ validate_single_cell <- function() {
 
 #' Create a single_cell object from a .mat file
 #'
-#' @param matdat the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file
+#' @param matdata the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file
 #' @export
 #' @importFrom R.matlab readMat
 single_cell <- function(matdata){

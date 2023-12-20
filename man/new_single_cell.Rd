@@ -7,7 +7,7 @@
 new_single_cell(x)
 }
 \arguments{
-\item{matdat}{the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file}
+\item{x}{the matlab data with the first column neurons firing time/location, eg. the file path to a matlab file}
 }
 \description{
 Given a matlab data set, this function creates a dataframe
