@@ -86,33 +86,26 @@ num2_cat1(iris, Sepal.Length, Sepal.Width, Species)
 # Creating new categorical column in the iris dataset
 iris <- iris
 random <- c("a", "b", "c")
-iris$cat <- sample(random, size = nrow(data), replace = TRUE)
+iris$cat <- sample(random, size = nrow(iris), replace = TRUE)
 
 num1_cat2(iris, cat, Sepal.Length, Species)
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
 
 You can also embed plots, for example:
 
 <img src="man/figures/raster_PSTH_example.jpg" width="100%"/>
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
-
 ### Spatial Data
 
-Load Example Data
+#### Load Example Data
+
+Load spatial data from North Carolina, both polygon and point data.
 
 ``` r
 library(explore)
 ```
 
     ## Loading required package: leaflet
-
-    ## Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'
-    ## when loading 'explore'
 
     ## The legacy packages maptools, rgdal, and rgeos, underpinning this package
     ## will retire shortly. Please refer to R-spatial evolution reports on
@@ -154,16 +147,35 @@ polygon_data <- st_read(system.file("shape/nc.shp", package="sf"))
     ## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
     ## Geodetic CRS:  NAD27
 
-Apply Functions
+#### Apply Functions
+
+`explore_points` has the capabilities to output to visuals: a point map
+and a heat map.
+
+`explore_polygons` has the ability to output three visuals: a basic plot
+of ploygons with a black boarder, a unique values plot as well as a
+gradient plot.
 
 ``` r
 library(explore)
 library(sf)
 #points -- this produces two plots that are accessible through the back and forward arrows in the viewer
-#explore::explore_points(point_data2)
+explore::explore_points(point_data2)
+```
 
+    ## Warning: sf layer has inconsistent datum (+proj=longlat +datum=NAD27 +no_defs).
+    ## Need '+proj=longlat +datum=WGS84'
+
+    ## Warning: sf layer has inconsistent datum (+proj=longlat +datum=NAD27 +no_defs).
+    ## Need '+proj=longlat +datum=WGS84'
+
+    ## $point_map
+    ## 
+    ## $heat_map
+
+``` r
 #other usage for extracting single plots
-#xplore_polygons()$plot_basic(polygon_data)
+#explore_polygons()$plot_basic(polygon_data)
 
 #explore_polygons(var_column = "FIPS")$plot_scaled(polygon_data)
 

@@ -87,17 +87,15 @@ iris$cat <- sample(random, size = nrow(iris), replace = TRUE)
 num1_cat2(iris, cat, Sepal.Length, Species)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
 You can also embed plots, for example:
 
 <img src="man/figures/raster_PSTH_example.jpg" width="100%"/>
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
-
 ### Spatial Data
 
-Load Example Data
+#### Load Example Data
+
+Load spatial data from North Carolina, both polygon and point data.
 
 ```{r}
 library(explore)
@@ -111,16 +109,20 @@ polygon_data <- st_read(system.file("shape/nc.shp", package="sf"))
 
 ```
 
-Apply Functions
+#### Apply Functions
+
+`explore_points` has the capabilities to output to visuals: a point map and a heat map.
+
+`explore_polygons` has the ability to output three visuals: a basic plot of ploygons with a black boarder, a unique values plot as well as a gradient plot.
 
 ```{r}
 library(explore)
 library(sf)
 #points -- this produces two plots that are accessible through the back and forward arrows in the viewer
-#explore::explore_points(point_data2)
+explore::explore_points(point_data2)
 
 #other usage for extracting single plots
-#xplore_polygons()$plot_basic(polygon_data)
+#explore_polygons()$plot_basic(polygon_data)
 
 #explore_polygons(var_column = "FIPS")$plot_scaled(polygon_data)
 
