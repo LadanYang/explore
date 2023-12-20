@@ -73,7 +73,8 @@ explore.single_cell <- function(data,
 #' Plot spatial data frames with class "POINT"
 #' Given a spatial data frame will produce a list of different types of visualizations.
 #'
-#' @param dataframe with geometry of "point" class
+#' @param data with geometry of "point" class
+#' @param variable option to place a variable as user input
 #'
 #'
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
@@ -122,7 +123,7 @@ explore_points <- function(data, variable = NULL) {
 #' Plot spatial data frames with class "POLYGON" or "MULTIPOLYGON"
 #' Given a spatial data frame will produce a list of different types of visualizations.
 #'
-#' @param dataframe with geometry of "POLYGON" or "MULTIPOLYGON" class
+#' @param base_map_type default basemap is set to OpenStreetMap
 #'
 #' @param var_column optional variable to plot a scaled and/or gradient map
 #'
