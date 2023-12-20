@@ -5,17 +5,18 @@
 \title{create peri-event histogram and raster plot for single_cell data}
 \usage{
 \method{explore}{single_cell}(
-  single_cell,
+  data,
   xaxis = "Time",
   yaxis = "Trials",
   stim = "Stimulus",
   shade_on = 0,
   shade_off = 0,
-  shade_color = "pink"
+  shade_color = "pink",
+  ...
 )
 }
 \arguments{
-\item{single_cell}{a \code{\link{single_cell}} object that has first column the spiking data and second column labeling the laps, trials or neurons}
+\item{data}{a \code{\link{single_cell}} object that has first column the spiking data and second column labeling the laps, trials or neurons}
 
 \item{xaxis}{the x axis label of the graph, default value as "Time"}
 
@@ -28,6 +29,8 @@
 \item{shade_off}{The ending x axis value for highlight/shading, default 0}
 
 \item{shade_color}{The coloring of the shading, default value as "pink"}
+
+\item{...}{Ignore}
 }
 \value{
 a plot with raster plot of neurons firing patterns and histogram of counts of the firing

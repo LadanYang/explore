@@ -1,5 +1,5 @@
 #' @export
-explore <- function(data, ...) {
+explore <- function(data,...) {
   UseMethod("explore")
 }
 #Clara's Functions
@@ -13,6 +13,7 @@ explore <- function(data, ...) {
 #' @param shade_on The starting x axis value for highlight/shading, default 0
 #' @param shade_off The ending x axis value for highlight/shading, default 0
 #' @param shade_color The coloring of the shading, default value as "pink"
+#' @param ... Ignore
 #' @return a plot with raster plot of neurons firing patterns and histogram of counts of the firing
 #' @exportS3Method
 explore.single_cell <- function(data,
@@ -21,13 +22,14 @@ explore.single_cell <- function(data,
                                 stim="Stimulus",
                                 shade_on=0,
                                 shade_off=0,
-                                shade_color="pink"
+                                shade_color="pink",
+                                ...
                                 ) {
   # Plot
 
   # Raster Plot with adjusted line length using geom_linerange
 
-  gg_raster <- ggplot(single_cell) +
+  gg_raster <- ggplot(data) +
     geom_rect(aes(fill = stim),
               xmin = shade_on, xmax = shade_off,
               ymin = 0,
@@ -38,12 +40,12 @@ explore.single_cell <- function(data,
                    color = "black"
                    ) +
     scale_fill_manual(values = shade_color, guide = "none") +
-    xlim(c(min(single_cell$V1), max(single_cell$V1))) +
+    xlim(c(min(data$V1), max(data$V1))) +
     ylab("Laps") +
     xlab(xaxis)+
     ggtitle("Neuronal Spike Times")
 
-  gg_psth <- ggplot(single_cell) +
+  gg_psth <- ggplot(data) +
     geom_rect(aes(fill = stim),
               xmin = shade_on, xmax = shade_off,
               ymax = Inf,
@@ -52,7 +54,7 @@ explore.single_cell <- function(data,
     ) +
     geom_histogram(aes(x = V1, y = ..count..), binwidth = 1, fill = "black", color = "black") +
     scale_fill_manual(values = shade_color) +
-    xlim(c(min(single_cell$V1), max(single_cell$V1))) +
+    xlim(c(min(data$V1), max(data$V1))) +
     ylab("Count") +
     xlab(xaxis)+
     ggtitle("Peri-Stimulus Time Histogram (PSTH)") +
