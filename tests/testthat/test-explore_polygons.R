@@ -5,7 +5,7 @@ library(tmap)
 #test for explore_polygons function
 test_that("explore_polygons works as expected", {
   #create test data
-  polygons <- st_read(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
+  polygons <- sf::st_read(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
 
   #test if the function returns a list
   result <- explore_polygons(polygons)
