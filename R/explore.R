@@ -131,11 +131,6 @@ explore_points <- function(data, variable = NULL) {
 #'
 #' @param var_column optional variable to plot a scaled and/or gradient map
 #'
-#' @param base.map fixed OpenStreetMap base
-#'
-#' @param polygons user input 'sf' class
-#'
-#' @param plot_type plot the user desired to access
 #'
 #' @return A list of visualizations interactive visualizations accessible through exp. 'list$map'
 #'
