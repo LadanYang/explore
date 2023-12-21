@@ -192,8 +192,8 @@ explore_polygons <- function(base_map_type = "OpenStreetMap", var_column = NULL)
   }
 
   # Function to create a base map
-  create_base_map <- function() {
-    tm_basemap() +
+  create_base_map <- function(base_map_type) {
+    tm_basemap(base_map_type) +
       tm_layout(title = "Base Map")
   }
 
