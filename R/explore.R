@@ -27,7 +27,7 @@ explore.single_cell <- function(data,
                                 shade_on=0,
                                 shade_off=0,
                                 shade_color="pink",
-                                title="Neuronal Spike Times"
+                                title="Neuronal Spike Times",
                                 ...
                                 ) {
   # Plot
