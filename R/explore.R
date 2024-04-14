@@ -48,7 +48,7 @@ explore.single_cell <- function(data,
     xlim(c(min(data$V1), max(data$V1))) +
     ylab("Laps") +
     xlab(xaxis)+
-    ggtitle(titile)
+    ggtitle(title)
 
   gg_psth <- ggplot(data) +
     geom_rect(aes(fill = stim),
