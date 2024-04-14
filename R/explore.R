@@ -27,6 +27,7 @@ explore.single_cell <- function(data,
                                 shade_on=0,
                                 shade_off=0,
                                 shade_color="pink",
+                                title="Neuronal Spike Times"
                                 ...
                                 ) {
   # Plot
@@ -47,7 +48,7 @@ explore.single_cell <- function(data,
     xlim(c(min(data$V1), max(data$V1))) +
     ylab("Laps") +
     xlab(xaxis)+
-    ggtitle("Neuronal Spike Times")
+    ggtitle(titile)
 
   gg_psth <- ggplot(data) +
     geom_rect(aes(fill = stim),
